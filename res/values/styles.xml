@@ -1,0 +1,28 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppTheme" parent="android:Theme.Light" />
+	<style name="AppGateWayButton">
+		<item name="android:layout_marginLeft">4dip</item> 
+        <item name="android:background">@drawable/button_background_selector</item> 
+        <item name="android:clickable">true</item>
+        <item name="android:padding">8dip</item>
+        <item name="android:textColor">@color/button_text_selector</item>
+        <item name="android:textSize">17dip</item>
+	</style>
+	
+	<style name="buttonStyle" parent="android:Widget.Holo.Light.TextView">
+		<item name="android:background">@drawable/button_background_selector</item>
+		<item name="android:clickable">true</item>
+		<item name="android:padding">8dip</item>
+		<item name="android:textColor">@color/button_text_selector</item>
+		<item name="android:textSize">17dip</item>
+	</style>
+
+	<style name="activityHeaderStyle" parent="android:Widget.Holo.Light.TextView">
+		<item name="android:background">@color/dark_grey</item>
+		<item name="android:paddingBottom">10dip</item>
+		<item name="android:paddingLeft">8dip</item>
+		<item name="android:paddingTop">10dip</item>
+		<item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+		<item name="android:textColor">@color/button_background</item>
+	</style>
+</resources>

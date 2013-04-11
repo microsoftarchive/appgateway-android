@@ -1,0 +1,173 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"                                             android:orientation="vertical"
+    android:paddingBottom="5dip"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip"
+    android:paddingTop="5dip" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/sign_in_title"
+            style="@style/activityHeaderStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dip"
+            android:text="@string/sign_in_title"
+/>
+
+        <RelativeLayout
+            android:id="@+id/sign_in_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_in_title"
+            android:orientation="vertical"
+            android:padding="8dip" >
+
+            <TextView
+                android:id="@+id/sign_in_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="@string/sign_in_description"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/sign_in_user_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/sign_in_alert_message"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="38dp"
+                android:text="@string/sign_in_username_label"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/sign_in_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/sign_in_user_name_label"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="5dip"
+                android:layout_toRightOf="@id/sign_in_user_name_label"
+                android:ems="10"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/sign_in_password_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/sign_in_user_name_label"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="14dp"
+                android:text="@string/sign_in_password_label"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/sign_in_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/sign_in_password_label"
+                android:layout_alignLeft="@id/sign_in_user_name"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dip"
+                android:layout_toRightOf="@+id/sign_in_user_name_label"
+                android:ems="10"
+                android:imeOptions="actionGo"
+                android:inputType="textPassword" >
+            </EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sign_in_password"
+                android:layout_margin="8dp"
+                android:paddingTop="8dp"
+>
+
+                <TextView
+                    android:id="@+id/sign_in_cancel"
+                    style="@style/buttonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dip"
+                    android:layout_weight="1"
+                    android:text="@string/sign_in_cancel_button"
+/>
+
+                <TextView
+                    android:id="@+id/sign_in_done"
+                    style="@style/buttonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dip"
+                    android:layout_weight="1"
+                    android:text="@string/sign_in_done_button"
+/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/sign_in_alert_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sign_in_description"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:paddingTop="10dip"
+                android:textColor="#FF0000"
+                android:visibility="gone" />
+        </RelativeLayout>
+                        <TextView
+            android:id="@+id/sign_in_app_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_in_content"
+            android:layout_margin="8dp"
+            android:linksClickable="true"
+            android:padding="8dip"
+            android:textColor="@android:color/black"
+            android:textSize="17dip" />
+                <!-- List load indicator -->
+
+        <LinearLayout
+            android:id="@+id/sign_in_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:id="@+id/sign_in_progress_bar"
+                style="@android:style/Widget.ProgressBar.Inverse"
+                android:layout_width="42dip"
+                android:layout_height="42dip"
+                android:indeterminate="true" />
+
+            <TextView
+                android:id="@+id/sign_in_progress_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:paddingLeft="10dip"
+                android:text="@string/sign_in_progress_text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

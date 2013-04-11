@@ -1,0 +1,177 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/advanced_router_settings_title"
+            style="@style/activityHeaderStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dip"
+            android:text="@string/advanced_router_settings_title"
+/>
+
+        <RelativeLayout
+            android:id="@+id/advanced_router_settings_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/advanced_router_settings_title"
+            android:orientation="vertical"
+            android:padding="8dip" >
+
+            <TextView
+                android:id="@+id/advanced_router_settings_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/advanced_router_settings_description"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/advanced_router_settings_router_url_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/advanced_router_settings_router_url_alert_message"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="38dp"
+                android:text="@string/advanced_router_settings_router_url_label"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/advanced_router_settings_router_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/advanced_router_settings_router_url_label"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="5dip"
+                android:layout_toRightOf="@id/advanced_router_settings_router_url_label"
+                android:ems="10"
+                android:imeOptions="actionNext"
+                android:inputType="textUri" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/use_smart_browser_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/advanced_router_settings_router_url_label"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="38dp"
+                android:text="Use SmartBrowser (OFF is default)?"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+            <ToggleButton
+                android:id="@+id/smart_browser_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/use_smart_browser_label"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/use_smart_browser_label" />
+
+            <TextView
+                android:id="@+id/clear_cookies_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/use_smart_browser_label"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="38dp"
+                android:text="Clear Cookies?"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+            <ToggleButton
+                android:id="@+id/clear_cookies_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/clear_cookies_label"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/clear_cookies_label" />
+            
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/clear_cookies_button"
+                android:text="No"
+                android:layout_margin="8dp"
+                android:paddingTop="8dp" >
+
+                <TextView
+                    android:id="@+id/advanced_router_settings_cancel"
+                    style="@style/buttonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dip"
+                    android:layout_weight="1"
+                    android:text="@string/advanced_router_settings_cancel_button"
+/>
+
+                <TextView
+                    android:id="@+id/advanced_router_settings_done"
+                    style="@style/buttonStyle"                    
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dip"
+                    android:layout_weight="1"
+                    android:text="@string/advanced_router_settings_done_button"
+/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/advanced_router_settings_router_url_alert_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/advanced_router_settings_description"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:paddingTop="10dip"
+                android:textColor="#FF0000"
+                android:visibility="gone" />
+
+</RelativeLayout>
+
+<!-- List load indicator -->
+
+        <LinearLayout
+            android:id="@+id/advanced_router_settings_router_url_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:id="@+id/advanced_router_settings_router_url_progress_bar"
+                style="@android:style/Widget.ProgressBar.Inverse"
+                android:layout_width="42dip"
+                android:layout_height="42dip"
+                android:indeterminate="true" />
+
+            <TextView
+                android:id="@+id/advanced_router_settings_router_url_progress_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:paddingLeft="10dip"
+                android:text="@string/advanced_router_settings_router_url_progress_message"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+</RelativeLayout>
+
+</ScrollView>

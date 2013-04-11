@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white_transparent">#00000000</color>
+    <color name="light_gray">#FFA5A5A5</color>
+    <color name="medium_grey">#FF626262</color>
+    <color name="dark_grey">#FF3b3b3b</color>
+    <color name="button_background">#FFE7DEE7</color>
+    <color name="progress_bar_background">#FFE1E1E1</color>
+
+</resources>

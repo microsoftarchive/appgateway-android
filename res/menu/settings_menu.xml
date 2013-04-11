@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:id="@+id/menu_connection"
+         android:title="@string/browser_menu_item_choose_connection" />
+     <item android:id="@+id/menu_sign_in_or_out"
+         android:title="@string/browser_menu_item_sign_out" />
+<!--      
+     <item android:id="@+id/menu_advanced_router_settings" 
+         android:title="@string/browser_menu_item_advanced_router_settings"></item>
+ -->         
+</menu>

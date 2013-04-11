@@ -1,0 +1,373 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="5dip"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip"
+    android:paddingTop="5dip" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/client_status_header"
+            style="@style/activityHeaderStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="@string/client_status_header" />
+
+        <RelativeLayout
+            android:id="@+id/client_status_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/client_status_header"
+            android:orientation="vertical"
+            android:padding="5dip" >
+
+            <TextView
+                android:id="@+id/client_status_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_below="@id/client_status_header"
+                android:gravity="center"
+                android:text="@string/client_status_title"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageButton
+                android:id="@+id/client_status_orgid_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/client_status_title"
+                android:background="@color/white_transparent"
+                android:clickable="false"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip"
+                android:src="@drawable/connection_yellow" />
+
+            <TextView
+                android:id="@+id/client_status_orgid_account_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/client_status_orgid_status"
+                android:layout_marginBottom="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/client_status_orgid_status"
+                android:text="@string/client_status_orgid_account_label"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/client_status_orgid_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/client_status_orgid_account_label"
+                android:layout_alignBottom="@id/client_status_orgid_account_label"
+                android:layout_alignLeft="@+id/client_status_agentid"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="65dip"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageButton
+                android:id="@+id/client_status_router_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/client_status_orgid_status"
+                android:background="@color/white_transparent"
+                android:clickable="false"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip"
+                android:src="@drawable/connection_yellow" />
+
+            <TextView
+                android:id="@+id/client_status_router_url_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/client_status_router_status"
+                android:layout_marginBottom="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/client_status_router_status"
+                android:text="@string/client_status_router_url"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/client_status_router_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/client_status_router_url_label"
+                android:layout_alignBottom="@+id/client_status_router_url_label"
+                android:layout_alignLeft="@+id/client_status_orgid_account"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="65dip"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageButton
+                android:id="@+id/client_status_agent_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/client_status_router_status"
+                android:background="@color/white_transparent"
+                android:clickable="false"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip"
+                android:src="@drawable/connection_yellow" />
+
+            <TextView
+                android:id="@+id/client_status_agent_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/client_status_agent_status"
+                android:layout_marginBottom="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/client_status_agent_status"
+                android:text="@string/client_status_agent_label"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/client_status_agent_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/client_status_agent_label"
+                android:layout_alignBottom="@+id/client_status_agent_label"
+                android:layout_alignLeft="@+id/client_status_router_url"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="65dip"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageButton
+                android:id="@+id/client_status_agentid_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/client_status_agent_status"
+                android:background="@color/white_transparent"
+                android:clickable="false"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip"
+                android:src="@drawable/connection_yellow" />
+
+            <TextView
+                android:id="@+id/client_status_agentid_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/client_status_agentid_status"
+                android:layout_marginBottom="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/client_status_agentid_status"
+                android:text="Agent ID:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/client_status_agentid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/client_status_agentid_label"
+                android:layout_alignBottom="@id/client_status_agentid_label"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="65dip"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageButton
+                android:id="@+id/client_status_sessionid_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/client_status_agentid_status"
+                android:background="@color/white_transparent"
+                android:clickable="false"
+                android:paddingBottom="5dip"
+                android:paddingTop="5dip"
+                android:src="@drawable/connection_yellow" />
+
+            <TextView
+                android:id="@+id/client_status_sessionid_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/client_status_sessionid_status"
+                android:layout_marginBottom="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/client_status_sessionid_status"
+                android:text="Session:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/client_status_sessionid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/client_status_sessionid_label"
+                android:layout_alignBottom="@id/client_status_sessionid_label"
+                android:layout_alignLeft="@+id/client_status_agentid"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="65dip"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+<!-- 
+            <TextView
+                android:id="@+id/BrowseRouterSystemPage"
+                style="@style/buttonStyle"                
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/client_status_sessionid_status"
+                android:onClick="onBrowseRouterSystemPage"
+                android:text="Browse Router System Page" />
+
+            <TextView
+                android:id="@+id/diagnostics_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/BrowseRouterSystemPage"
+                android:gravity="center"
+                android:paddingBottom="8dip"
+                android:paddingTop="8dip"
+                android:text="Diagnostics"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/last_error_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/diagnostics_title"
+                android:paddingLeft="8dip"
+                android:text="Last Error:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/last_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/last_error_label"
+                android:layout_alignLeft="@id/client_status_sessionid"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/diagnostics_title"
+                android:paddingLeft="65dip"
+                android:text="Not yet implemented..."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/token_timestamp_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/last_error_label"
+                android:layout_below="@+id/last_error_label"
+                android:paddingLeft="8dip"
+                android:text="Token Created:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/token_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/token_timestamp_label"
+                android:layout_alignLeft="@id/client_status_sessionid"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/last_error_label"
+                android:paddingLeft="65dip"
+                android:text="Not yet implemented..."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/session_created_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/token_timestamp_label"
+                android:layout_below="@+id/token_timestamp_label"
+                android:paddingLeft="8dip"
+                android:text="Session Created:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/session_created"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/view_traces"
+                android:layout_alignLeft="@id/client_status_sessionid"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/token_timestamp_label"
+                android:paddingLeft="65dip"
+                android:text="Not yet implemented..."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/view_traces"
+                style="@style/buttonStyle"                
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/session_created_label"
+                android:text="View Traces" />
+
+            <TextView
+                android:id="@+id/performance_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/view_traces"
+                android:gravity="center"
+                android:paddingBottom="8dip"
+                android:paddingTop="5dip"
+                android:text="Performance"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/orgid_latency_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/session_created_label"
+                android:layout_below="@+id/performance_title"
+                android:paddingLeft="8dip"
+                android:text="O365 Average Latency:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/orgid_latency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/client_status_sessionid"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/performance_title"
+                android:paddingLeft="65dip"
+                android:text="Not yet implemented..."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/router_latency_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/orgid_latency_label"
+                android:layout_below="@+id/orgid_latency_label"
+                android:paddingLeft="8dip"
+                android:text="Router Average Latency:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/router_latency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/client_status_sessionid"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/orgid_latency_label"
+                android:paddingBottom="30dip"
+                android:paddingLeft="65dip"
+                android:text="Not yet implemented..."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+ -->
+            <TextView
+                android:id="@+id/client_status_ok_button"
+                style="@style/buttonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/client_status_sessionid_status"
+                android:onClick="onOKClick"
+                android:text="@string/client_status_ok" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

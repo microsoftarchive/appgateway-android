@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/dark_grey"
+        android:orientation="horizontal"
+        android:paddingLeft="5dip" >
+
+        <ImageButton
+            android:id="@+id/main_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="4dip"
+            android:background="@color/white_transparent"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip"
+            android:src="@drawable/back_button"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/main_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dip"
+            android:background="@color/white_transparent"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip"
+            android:src="@drawable/forward_button"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/main_bookmarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white_transparent"
+            android:layout_marginLeft="4dip"
+            android:layout_marginRight="4dip"      
+            android:onClick="onShowBookmarks"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip"
+            android:src="@drawable/bookmarks_button"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/main_address_bar"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1"
+            android:background="@drawable/url_field" >
+
+            <AutoCompleteTextView
+                android:id="@+id/main_url"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/main_reload"
+                android:background="@null"
+                android:imeOptions="actionGo"
+                android:inputType="textUri"
+                android:paddingRight="5dip" >
+
+                <requestFocus />
+            </AutoCompleteTextView>
+
+            <ImageButton
+                android:id="@+id/main_reload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dip"
+                android:background="@color/white_transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/reload_button" />
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/main_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dip"
+            android:background="@color/white_transparent"
+            android:onClick="showAddBookmarkDialog"
+            android:paddingBottom="7dip"
+            android:paddingTop="7dip"
+            android:src="@drawable/favorite_button"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/main_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dip"
+            android:background="@color/white_transparent"
+            android:onClick="showSettingsPopup"
+            android:paddingBottom="7dip"
+            android:paddingTop="7dip"
+            android:scaleType="fitCenter"
+            android:src="@drawable/settings_button" />
+
+        <ImageButton
+            android:id="@+id/main_status"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="4dip"
+            android:layout_marginRight="-4dip"
+            android:layout_marginTop="4dip"
+            android:background="@color/white_transparent"
+            android:onClick="showClientStatusAndDiagnostics"
+            android:clickable="true"
+            android:paddingBottom="7dip"
+            android:paddingTop="7dip"
+            android:scaleType="fitCenter"
+            android:src="@drawable/connection_yellow" />
+    </LinearLayout>
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/main_toolbar" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tabs_background" >
+
+                <HorizontalScrollView
+                    android:id="@+id/scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/main_add_tab"
+                    android:paddingLeft="10dip"
+                    android:scrollbars="none" >
+
+                    <TabWidget
+                        android:id="@android:id/tabs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="2dip" />
+                </HorizontalScrollView>
+
+                <ImageButton
+                    android:id="@+id/main_add_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="8dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="11dip"
+                    android:layout_marginTop="8dip"
+                    android:background="@drawable/new_tab"
+                    android:scaleType="fitCenter" />
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="-1dp" >
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+    <ProgressBar
+        android:id="@+id/main_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dip"
+        android:layout_below="@id/main_toolbar"
+        android:background="@color/progress_bar_background"
+        android:max="100"
+        android:progressDrawable="@drawable/progress_bar_style" />
+
+</RelativeLayout>

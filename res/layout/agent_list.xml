@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="5dip"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip"
+    android:paddingTop="5dip" >
+
+    <TextView
+        android:id="@+id/agent_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/agents_description"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/agent_agents_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/agent_description"
+        android:layout_above="@+id/agent_buttons_block"
+        android:paddingBottom="4dip"                                                 android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@id/agent_buttons_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="8dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/agent_cancel_button"
+            style="@style/buttonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dip"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/agents_cancel_button" />
+    </LinearLayout>
+
+    <!-- List load indicator -->
+
+    <LinearLayout
+        android:id="@+id/agent_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"         android:visibility="visible" >
+
+        <ProgressBar
+            android:id="@+id/agent_progress_bar"
+            style="@android:style/Widget.ProgressBar.Inverse"
+            android:layout_width="42dip"
+            android:layout_height="42dip"
+            android:indeterminate="true" />
+
+        <TextView
+            android:id="@+id/agent_progress_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:text="@string/agents_in_progress_text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>
+
+</RelativeLayout>
