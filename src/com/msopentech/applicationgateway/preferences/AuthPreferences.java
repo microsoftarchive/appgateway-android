@@ -25,6 +25,11 @@ import android.preference.PreferenceManager;
 public class AuthPreferences {
 
     /**
+     * Preference key to get first run.
+     */
+    private static String FIRST_RUN = "first_run";	
+	
+    /**
      * Preference key to get user name.
      */
     private static String ROUTER_URL = "router_url";
@@ -64,6 +69,35 @@ public class AuthPreferences {
      */
     private static final SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(ApplicationGateway.getAppContext());
 
+    /**
+     * Stores first run into SharedPreferences.
+     * 
+     * @param first run.
+     */
+    public static void storeFirstRun(boolean firstRun){
+        try {
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putBoolean(FIRST_RUN, firstRun);
+            editor.commit();
+        } catch (final Exception e) {
+            Utility.showAlertDialog(AuthPreferences.class.getSimpleName() + ".storeFirstRun(): Failed. " + e.toString(), ApplicationGateway.getAppContext());
+        }
+    }
+
+    /**
+     * Returns first run from SharedPreferences.
+     * 
+     * @return first run. In case of exception returns <code>null</code>. 
+     */
+    public static boolean loadFirstRun(){
+        try {
+        	return mPreferences.getBoolean(FIRST_RUN, true);
+        } catch (final Exception e) {
+            Utility.showAlertDialog(AuthPreferences.class.getSimpleName() + ".loadFirstRun(): Failed. " + e.toString(), ApplicationGateway.getAppContext());
+        }
+        return true;
+    }
+    
     /**
      * Stores router url into SharedPreferences.
      * 

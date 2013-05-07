@@ -1,24 +1,26 @@
 <resources>
 
-    <string name="app_name">Enterprise Browser</string>
+    <string name="app_name">Application Gateway</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Enterprise Browser</string>
+    <string name="title_activity_main">Application Gateway</string>
 
-    <string name="sign_in_title">Organization or School</string>
-    <string name="sign_in_description">Sign in using the user ID assigned by your work or school for accessing Microsoft online services.</string>
+    <string name="sign_in_title">Sign In</string>
+    <string name="sign_in_description">Sign in using a Windows Azure Active Directory or Office 365 account.</string>
     <string name="sign_in_username_label">User Name:</string>
     <string name="sign_in_password_label">Password:</string>
     <string name="sign_in_done_button">Sign In</string>
     <string name="sign_in_cancel_button">@android:string/cancel</string>
     <string name="sign_in_app_help_url">http://MSOpenTech.github.com/Msappgateway</string>
-    <string name="sign_in_app_help">Enterprise browser provides access to corporate intranet resources via Proxy Agent and Microsoft&#169; Azure cloud. Get &lt;u>&lt;i>&lt;a href="%1$s">help and additional information.&lt;/i>&lt;/u>&lt;/a></string>
+    <string name="sign_in_app_help">Application Gateway provides access to corporate intranet resources via Proxy Connector and Microsoft© Azure cloud. Get &lt;u&gt;&lt;i&gt;&lt;a href=&quot;%1$s&quot;&gt;help and additional information.&lt;/i&gt;&lt;/u&gt;&lt;/a&gt;</string>
     <string name="sign_in_progress_text">Signing In&#8230;</string>
     <string name="sign_in_session_expiry_alert_text">Your session has expired. Please sign in again.</string>
     <string name="sign_in_connection_choose_alert_text">You must successfully sign in to the Application Gateway prior to choosing a connection.</string>
     <string name="sign_in_browsing_alert_text">You must successfully sign in to the Application Gateway before browsing.</string>
     <string name="sign_in_attempt_failed">An error has occurred during your attempt to sign in, please try again.</string> 
+    <string name="sign_in_no_connector">No registered connectors found.  Please visit our &lt;u&gt;&lt;i&gt;&lt;a href=&quot;%1$s&quot;&gt;help and additional information&lt;/i&gt;&lt;/u&gt;&lt;/a&gt; page to learn more about how to register new connectors.</string>
     
-<string name="sign_in_no_connection">No data connection is available.</string>
+    <string name="first_run_message">If this is your first use of Application Gateway, please visit our &lt;u&gt;&lt;i&gt;&lt;a href=&quot;%1$s&quot;&gt;help and additional information&lt;/i&gt;&lt;/u&gt;&lt;/a&gt; page.  A connector is required to be installed and registered prior to use.</string>
+    <string name="message_dialog_title">Welcome</string>
     
     <string name="browser_menu_item_add_bookmark">Add Bookmark</string>
     <string name="browser_menu_item_sign_in">Sign In</string>
@@ -40,9 +42,9 @@
     <string name="bookmark_dialog_save">Save</string>
     <string name="bookmark_dialog_cancel">@android:string/cancel</string>
 
-    <string name="agents_list_header">Agents</string>
-    <string name="agents_description">Choose proxy agent from the list below. Selected agent will proxy requests to private network it is installed on and internal resources accessible.</string>
-    <string name="agents_in_progress_text">Retrieving agents list&#8230;</string>
+    <string name="agents_list_header">Connectors</string>
+    <string name="agents_description">Choose proxy connector from the list below. Selected connector will proxy requests to private network it is installed on and internal resources accessible.</string>
+    <string name="agents_in_progress_text">Retrieving connectors list&#8230;</string>
     <string name="agents_obtain_failed">A network error has occurred, please try again.</string>
 
 <string name="agents_cancel_button">@android:string/cancel</string>
@@ -64,6 +66,6 @@
     <string name="client_status_header">Status, Diagnostics, and Performance</string>
     <string name="client_status_orgid_account_label">Login:</string>
     <string name="client_status_router_url">Router:</string>
-    <string name="client_status_agent_label">Agent:</string>    
+    <string name="client_status_agent_label">Connector:</string>    
     <string name="client_status_ok">@android:string/ok</string>
 </resources>

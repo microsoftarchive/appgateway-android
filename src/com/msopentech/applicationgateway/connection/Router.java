@@ -38,11 +38,15 @@ import org.w3c.dom.Node;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.text.Html;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.msopentech.applicationgateway.EnterpriseBrowserActivity;
 import com.msopentech.applicationgateway.ApplicationGateway;
+import com.msopentech.applicationgateway.R;
 import com.msopentech.applicationgateway.data.AgentEntity;
 import com.msopentech.applicationgateway.data.ConnectionTraits;
 import com.msopentech.applicationgateway.data.Credentials;
@@ -326,7 +330,8 @@ public class Router {
                     agentDisplayName = item.getString(JSON_AGENT_DISPLAY_NAME_KEY);
 
                     if (preferredAgent != null && preferredAgent.getAgentId() != null && preferredAgent.getAgentId().contentEquals(agentId) && preferredAgent.getDisplayName() != null
-                            && preferredAgent.getDisplayName().contentEquals(agentDisplayName)) preferredAgentFound = true;
+                        && preferredAgent.getDisplayName().contentEquals(agentDisplayName)) 
+                    	preferredAgentFound = true;
 
                     if (i == 0 || preferredAgentFound) {
                         agent = new AgentEntity();
@@ -342,23 +347,23 @@ public class Router {
                             if (!agent.getAgentId().isEmpty()) {
                                 return agent;
                             } else {
-                                traits.setError(String.format(ERROR_AGENT, "Agent ID is empty."));
+                                traits.setError(String.format(ERROR_AGENT, "Connector ID is empty."));
                             }
                         }
                     }
                 } catch (JSONException e) {
-                    traits.setError(String.format(ERROR_AGENT, "Agents list parsing failed."));
+                    traits.setError(String.format(ERROR_AGENT, "Connectors list parsing failed."));
                     return null;
                 }
             }
             if(agent == null || TextUtils.isEmpty(agent.getAgentId())) {
-                traits.setError(String.format(ERROR_AGENT, "Agent ID is null or empty."));
+                traits.setError(String.format(ERROR_AGENT, "Connector ID is null or empty."));
             } else {
                 return agent;
             }
         } catch (final Exception e) {
-            logError(e, Router.class.getSimpleName() + ".obtainAgents() Failed");
-            traits.setError(String.format(ERROR_AGENT, "Agent retrieval failed."));
+            logError(e, Router.class.getSimpleName() + ".obtainConnectors() Failed");
+            traits.setError(String.format(ERROR_AGENT, "Connector retrieval failed."));
         }
 
         return null;
@@ -409,13 +414,13 @@ public class Router {
             agentsArray = responseObject.getJSONArray(JSON_AGENTS_KEY);
 
             if(agentsArray == null || agentsArray.length() <= 0) {
-                traits.setError(String.format(ERROR_AGENT, "Agents list is null or empty."));
+                traits.setError(String.format(ERROR_AGENT, "No connectors found."));
             } else {
                 return agentsArray;
             }            
         } catch (final Exception e) {
-            logError(e, Router.class.getSimpleName() + ".obtainAgents() Failed");
-            traits.setError(String.format(ERROR_AGENT, "Agents retrieval failed."));
+            logError(e, Router.class.getSimpleName() + ".obtainConnectors() Failed");
+            traits.setError(String.format(ERROR_AGENT, "Connectors retrieval failed."));
         }
 
         return null;

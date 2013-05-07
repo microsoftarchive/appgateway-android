@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -109,6 +110,11 @@ public class SignInActivity extends Activity implements OnOperationExecutionList
             TextView applicationHelp = (TextView) findViewById(R.id.sign_in_app_help);
             applicationHelp.setText(Html.fromHtml(getResources().getString(R.string.sign_in_app_help, getResources().getString(R.string.sign_in_app_help_url))));
             applicationHelp.setMovementMethod(LinkMovementMethod.getInstance());
+            
+            if (AuthPreferences.loadFirstRun()) {
+                Utility.showMessageDialog(Html.fromHtml(getResources().getString(R.string.first_run_message, getResources().getString(R.string.sign_in_app_help_url))), getResources().getString(R.string.message_dialog_title), SignInActivity.this);
+                AuthPreferences.storeFirstRun(false);
+            }
     	} catch(final Exception e) {
     		Utility.showAlertDialog(SignInActivity.class.getSimpleName() + ".onCreate(): Failed. " + e.toString(), SignInActivity.this);
     	}
@@ -147,14 +153,15 @@ public class SignInActivity extends Activity implements OnOperationExecutionList
      * 
      * @param alertMessage Message to display.
      */
-    private void setAlertMessage(String alertMessage) {
+    private void setAlertMessage(CharSequence alertMessage) {
         try {
             if(alertMessage == null) { 
                 return;
             }
             TextView alertMessageView = (TextView)findViewById(R.id.sign_in_alert_message);
             alertMessageView.setVisibility(View.VISIBLE);
-            alertMessageView.setText(alertMessage);
+            alertMessageView.setText(alertMessage, TextView.BufferType.SPANNABLE);
+            alertMessageView.setMovementMethod(LinkMovementMethod.getInstance());
         } catch (final Exception e) {
             Utility.showAlertDialog(SignInActivity.class.getSimpleName() + ".setAlertMessage(): Failed. " + e.toString(), SignInActivity.this);
         }
@@ -168,28 +175,32 @@ public class SignInActivity extends Activity implements OnOperationExecutionList
 
     @Override
     public void onExecutionComplete(int operation, Object result[]) {
-            try {
-                mIsWorkInProgress = false;
+        try {
+            mIsWorkInProgress = false;
             ConnectionTraits traits = (ConnectionTraits)result[0];
 
             if (result[0] == null || result.length <= 0 || result[0] == null) {
                 String error = getResources().getString(R.string.sign_in_attempt_failed);
                 setAlertMessage(error);
-                    showWorkInProgress(mIsWorkInProgress);
-                    EnterpriseBrowserActivity.mTraits.error = error;
-                } else {
+                showWorkInProgress(mIsWorkInProgress);
+                EnterpriseBrowserActivity.mTraits.error = error;
+            } else {
                 if (!TextUtils.isEmpty(traits.error)) {
-                    setAlertMessage(traits.error);
-                        showWorkInProgress(mIsWorkInProgress);
-                        EnterpriseBrowserActivity.mTraits = traits;
+                    if (traits.error.contains("No connectors found.")) { // Special case no connector found.  Router.java does not yet use resource file.
+                        setAlertMessage(Html.fromHtml(getResources().getString(R.string.sign_in_no_connector, getResources().getString(R.string.sign_in_app_help_url))));
                     } else {
-                    Intent resultIntent = getIntent().putExtra(EnterpriseBrowserActivity.EXTRAS_TRAITS_KEY, traits);
-                        setResult(RESULT_OK, resultIntent);
-                        finish();
+                        setAlertMessage(traits.error);
                     }
+                    showWorkInProgress(mIsWorkInProgress);
+                    EnterpriseBrowserActivity.mTraits = traits;
+                } else {
+                    Intent resultIntent = getIntent().putExtra(EnterpriseBrowserActivity.EXTRAS_TRAITS_KEY, traits);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
                 }
-            } catch (final Exception e) {
-            Utility.showAlertDialog(SignInActivity.class.getSimpleName() + ".onExecutionComplete(): Failed. " + e.toString(), SignInActivity.this);
             }
+        } catch (final Exception e) {
+                Utility.showAlertDialog(SignInActivity.class.getSimpleName() + ".onExecutionComplete(): Failed. " + e.toString(), SignInActivity.this);
         }
     }
+}
