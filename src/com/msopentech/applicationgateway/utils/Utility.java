@@ -17,7 +17,11 @@ import com.msopentech.applicationgateway.connection.Router;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -54,6 +58,35 @@ public class Utility {
         }
     }
 
+    /**
+     * Shows initial message.
+     * 
+     * @param message Spanned message to be displayed.
+     * @param context Application context.
+     */
+    public static void showMessageDialog(Spanned message, String title, Context context) {
+        try {
+            TextView messageTextView = new TextView(context);
+            messageTextView.setText(message);
+            messageTextView.setMovementMethod(LinkMovementMethod.getInstance());
+            messageTextView.setPadding(20, 20, 20, 20);
+        
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle(title);
+            builder.setView(messageTextView);
+            builder.setPositiveButton(ApplicationGateway.getAppContext().getResources().getString(R.string.alert_dialog_ok), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        } catch (final Exception e) {
+            Log.d(Utility.class.getSimpleName(), "showAlertDialog(): Failed.", e);
+        }
+    }
+        
     /**
      * Shows a toast notification.
      * 
