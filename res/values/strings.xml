@@ -10,7 +10,7 @@
     <string name="sign_in_password_label">Password:</string>
     <string name="sign_in_done_button">Sign In</string>
     <string name="sign_in_cancel_button">@android:string/cancel</string>
-    <string name="sign_in_app_help_url">http://MSOpenTech.github.com/Msappgateway</string>
+    <string name="sign_in_app_help_url">http://go.microsoft.com/fwlink/?LinkID=301491</string>
     <string name="sign_in_app_help">Application Gateway provides access to corporate intranet resources via Proxy Connector and Microsoft© Azure cloud. Get &lt;u&gt;&lt;i&gt;&lt;a href=&quot;%1$s&quot;&gt;help and additional information.&lt;/i&gt;&lt;/u&gt;&lt;/a&gt;</string>
     <string name="sign_in_progress_text">Signing In&#8230;</string>
     <string name="sign_in_session_expiry_alert_text">Your session has expired. Please sign in again.</string>
